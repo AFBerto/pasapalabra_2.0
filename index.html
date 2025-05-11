@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Rosco de Aprendiendo Física y Química</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <!-- Script para verificar carga de Firebase -->
+    <script>
+        window.addEventListener('load', function() {
+            if (typeof firebase === 'undefined') {
+                console.error('Firebase SDK no cargado. Verifica la conexión a internet o la configuración de privacidad.');
+            } else {
+                console.log('Firebase SDK cargado correctamente.');
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="images/header.png" alt="El Rosco de Aprendiendo Física y Química">
+    </header>
+    <main>
+        <!-- Pantalla inicial: Selección de categoría (Física o Química) -->
+        <div id="categorySelection">
+            <p class="category-title">¿Qué materia prefieres?</p>
+            <div class="category-buttons">
+                <img src="images/fisica.png" alt="Física" onclick="selectCategory('fisica')">
+                <img src="images/quimica.png" alt="Química" onclick="selectCategory('quimica')">
+            </div>
+        </div>
+
+        <!-- Pantalla de selección de nivel, oculta inicialmente -->
+        <div id="levelSelection" style="display: none;">
+            <img src="images/level.png" alt="Escoge el nivel de dificultad" class="level-title">
+            <div class="level-buttons">
+                <img src="images/eso2.png" alt="ESO 2" onclick="selectLevel('eso2')">
+                <img src="images/eso3.png" alt="ESO 3" onclick="selectLevel('eso3')">
+                <img src="images/eso4.png" alt="ESO 4" onclick="selectLevel('eso4')">
+                <img src="images/bach1.png" alt="Bachillerato 1" onclick="selectLevel('bach1')">
+                <img src="images/bach2.png" alt="Bachillerato 2" onclick="selectLevel('bach2')">
+            </div>
+            <!-- Botón para volver a la selección de materia -->
+            <button id="backToCategoryButton" class="back-to-category-button">
+                <img src="images/back2.png" alt="Volver a materias" class="back-img">
+            </button>
+        </div>
+
+        <!-- Contenedor del juego, oculto al inicio -->
+        <div id="gameContent" style="display: none;">
+            <div id="rosco" class="rosco">
+                <!-- Botón para volver a la selección de nivel -->
+                <button id="backButton" class="back-button" style="display: none;">
+                    <img src="images/back.png" alt="Volver" class="back-img">
+                </button>
+                <!-- Imagen giratoria -->
+                <img id="rotatingImage" src="images/rotate.png" alt="Círculos giratorios">
+                <!-- Contenedor para el texto y el botón de empezar -->
+                <div id="roscoCenter">
+                    <p class="rosco-title">
+                        <span>Vas a jugar al</span>
+                        <span>Rosco 1</span>
+                        <span class="rosco-level">Nivel: aprendiendo fisica</span>
+                    </p>
+                    <p class="rosco-ready">¿preparado?</p>
+                    <button id="roscoStartButton"><img src="images/start.png" alt="Empezar"></button>
+                </div>
+                <!-- Contadores -->
+                <div id="timerDisplay" class="counter timer-counter">
+                    <span id="timerText">5:00</span>
+                </div>
+                <div id="correctCountDisplay" class="counter correct-counter">
+                    <span id="correctCount">0</span>
+                </div>
+                <div id="errorCountDisplay" class="counter error-counter">
+                    <span id="errorCount">0</span>
+                </div>
+                <div id="remainingCountDisplay" class="counter remaining-counter">
+                    <span id="remainingCount">25</span>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p><a href="https://www.aprendiendofisicaconbertotomas.com">www.aprendiendofisicaconbertotomas.com</a></p>
+        </footer>
+    </div>
+    <script src="js/scripts.js"></script>
+    <script>
+        console.log('Scripts cargados correctamente');
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d0d9e87b8bbf96',t:'MTc0Njc5MDA4My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
